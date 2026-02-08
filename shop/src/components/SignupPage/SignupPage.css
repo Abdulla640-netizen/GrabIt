@@ -1,0 +1,40 @@
+.SignupPage {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 30px;
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: linear-gradient(to left,#003399,rgb(117, 204, 252));
+  font-family: sans-serif;
+}
+.footer-elements {
+  display: flex;
+    position: absolute;
+  color: white;
+  justify-content: space-between;
+  width: calc(90%);
+    margin-top: 50px;
+}
+.footer{
+  width: 90%;
+  bottom: 0;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+
+}
+.footer-element{
+  display: flex;
+  gap: 15px;
+}
+.footer-link{
+  text-decoration: none;
+  color: white;
+  transition: 1s ease;
+}
+.footer-link:hover{
+  color: #2688eb
+}

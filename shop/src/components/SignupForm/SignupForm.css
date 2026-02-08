@@ -1,0 +1,70 @@
+.S{
+ padding: 35px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+  border: 1px solid;
+   border-radius: 14px; 
+   color: transparent;
+   background-color:white
+   
+}
+/* .Signup{
+    height: 100%;
+} */
+.btn{
+ width:304px;
+ height:36px ;
+ border-radius: 8px;
+ border-color: transparent;
+ color: #FFF;
+ background-color: #2688eb;
+margin-top: 30px;
+font-size: 15px;
+
+
+}
+input{
+    margin-top: 20px;
+    width:278px ;
+    height: 26px;
+    border-radius: 8px;
+    background-color: rgb(244, 244, 244);
+    border: 1px solid rgb(193, 193, 193);
+    padding: 5px;
+
+}
+.title{
+    color: black;
+    background-color: white;
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.logo{
+    background-color: #FFF;
+    width:200px;
+    height: 140px;
+   
+}
+.remember{
+    color: black;
+}
+.checkbox{
+    display: flex;
+    gap: 15px;
+    padding-top: 15px;
+    align-items: center;
+}
+.checkbox input{
+    margin: 0px;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    color: #a6adb7;
+    background-color: #2688eb;
+   
+}
+
+
