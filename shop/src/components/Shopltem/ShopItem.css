@@ -8,19 +8,18 @@
     border-radius: 16px;
     border: 2px black solid;
     width: 250px;
-    height: 350px;
+     max-height: 350px;
     padding: 5px;
     font-family: sans-serif;
     border-color: transparent;
-    display: flex;flex-direction: column;
-    margin-top: 25px
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
-.product img{
-    width: 250px;
-    height: 250px;
-    border-radius: 16px;
+.img-item{
+    min-height: 300px;
     
-
 }
 .products{
     display: flex;
@@ -49,11 +48,6 @@ transition: 0.6s;
 .home{
     width: 250px;
     height: 250px;
-}
-.btn-detailed:hover{
-    background-color: rgb(117, 204, 252);
-     transform: scale(0.9);
-
 }
 .producttop{
 display: flex;

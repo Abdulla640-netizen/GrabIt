@@ -1,0 +1,90 @@
+.root{
+    margin-left: 5%;
+}
+.recomendation{
+    font-family: 'Manrope', Arial, sans-serif;
+}
+.product{
+    border-radius: 16px;
+    border: 2px black solid;
+    width: 250px;
+    height: 350px;
+    padding: 5px;
+    font-family: sans-serif;
+    border-color: transparent;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px
+}
+.product img{
+    width: 250px;
+    height: 300px;
+    border-radius: 16px;
+    
+
+}
+.products{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.btn-detailed{
+padding: 14px;
+font-family:sans-serif ;
+border-radius:12px ;
+background-color: #003399;
+color: #f7f5f5;
+border-color: transparent;
+width: 250px; ;
+/* height:; */
+font-size: 18px;
+margin-top: 8px;
+transition: 0.6s;
+
+}
+.strong{
+    margin-top: 8px;
+}
+.home{
+    width: 250px;
+    height: 250px;
+}
+.btn-detailed:hover{
+    background-color: #3d74e2;
+     /* transform: scale(0.9); */
+
+}
+.producttop{
+display: flex;
+justify-content:space-between;
+}
+.producttop svg:hover{
+stroke: red;
+ transform: scale(1.2);
+
+}
+.producttop svg{
+    transition: 0.3s;
+    margin-top: 25px;
+    
+}
+.producttop svg:active{
+    fill: red;
+    
+}
+.Liked{
+    fill: red;
+    stroke: transparent;
+}
+.producttop strong{
+    padding-top: 25px;
+}
+.ItemsListManagementPage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #fff;
+  padding-top: 70px;
+  min-height: 100vh;
+  font-family: inherit;
+}

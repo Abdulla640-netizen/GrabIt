@@ -1,4 +1,7 @@
 .Home{
-    background-color: #f4f4f4;
-    ;
+    /* background-color: #f4f4f4; */
+    background-color: #FFF;
+}
+.btn-category:first-child{
+margin-left: 2.5%;
 }

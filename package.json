@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@mui/material": "^9.2.0",
+    "multer": "^2.1.0",
+    "react-select": "^5.10.2"
+  }
+}

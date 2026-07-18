@@ -1,14 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import "./ShopItem.css";
+
+
 function Shopltem(props) {
+
   const navigate = useNavigate();
+
 
   const handleClick = (id) => {
     navigate(`/item/${id}`); // Переход на страницу товара с id
   };
   return (
     <div className="product">
-      <img src={props.product.image} alt="" />
+      <img className="img-item" src={props.product.image} alt="" />
       <div className="producttop">
         <strong>{props.product.name}</strong>
         <svg
@@ -62,7 +66,7 @@ function Shopltem(props) {
         className="btn-detailed"
         onClick={() => handleClick(props.product.id)}
       >
-        посмотреть товар
+        Посмотреть товар
       </button>
       {/* <span> {products.filter((p)=>p.category === props.product.category)}</span> */}
     </div>

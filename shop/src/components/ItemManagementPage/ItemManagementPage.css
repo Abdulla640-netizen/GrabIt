@@ -1,0 +1,169 @@
+.item-management-page {
+  background-color: #fff;
+  padding-top: 70px;
+  min-height: 100vh;
+  font-family: Onest;
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.item-management-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 90%;
+  gap: 20px;
+
+
+}
+.item-management-images {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: 0 auto;
+  gap: 20px;
+  justify-content: space-between;
+}
+.item-management-images img {
+  border-color: black;
+  border-radius: 12px;
+  width: 260px;
+  height: 380px;
+  display: block;
+}
+.useState{
+    transition: 0.5s;
+  padding: 5px;
+  border-radius: 12px;
+  font-size: 20px !;
+   max-width: 400px;
+   display: flex;
+   flex-direction: column;
+   margin-top: 10px;
+
+
+}
+.useState:hover{
+    background-color: #ebe9e9;
+}
+.useState-container{
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+  
+
+.title{
+  font-size: 20px ;
+}
+.input{
+  width: 150px;
+  font-family: Onest;
+  margin-bottom: 30px;
+ display: table-cell;
+ font-size: 18px;
+}
+b{
+display: flex;
+gap: 5px;
+}
+.modal-btn{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+ justify-content: center;
+ align-items: center;
+ 
+ padding: 20px
+}
+.cancel-btn{
+background-color:rgb(225, 224, 224) ;
+color:black ;
+border: none;
+border-radius: 9px;
+
+border-color: rgb(226, 226, 226);
+height: 36px;
+width:210px ;
+}
+.delete-btn{
+  background-color: red;
+  color: white;
+  border-radius: 9px;
+border-color: transparent;
+height: 36px;
+width:210px ;
+}
+.item-edit-btn{
+  padding: 10px 40px ;
+  border-radius: 10px;
+  color: #fff;
+  margin-left: 65px;
+  margin-bottom: 30px;
+  background-color: rgb(53, 53, 180);
+  border-color: transparent;
+  font-size: 18px;
+  font-family: 'Onest';
+}
+.item-images-btn{
+  padding: 10px 40px ;
+  border-radius: 12px;
+  color: rgb(53, 53, 180);
+  margin-left: 65px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border: 2px solid rgb(31, 31, 192);
+  font-size: 18px;
+  font-family: 'Onest';
+
+}
+.add-btn{
+   background-color: rgb(19, 188, 13);
+  color: white;
+  border-radius: 9px;
+border-color: transparent;
+height: 36px;
+width:210px ;
+}
+.modal-description{
+  font-size: 14px;
+  text-align: center;
+  width: 80%;
+  padding-top: 3px;
+}
+.modal-header{
+  display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ gap: 7px;
+}
+.delete-description{
+  font-size: 14px;
+   text-align: center;
+}
+.input-modal{
+  width: 80%;
+  background: transparent;
+  padding: 7px;
+  border-radius: 9px ;
+  border: 1px solid #CCC;
+  font-size: 14px;
+}
+.input-modal:focus{
+  border: 1px solid #555;
+  outline: none;
+}
+.input-modal::placeholder{
+  font-style: italic;
+  color: #999;
+}

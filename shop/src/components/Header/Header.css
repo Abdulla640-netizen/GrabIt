@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&family=Rubik+Moonrocks&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+
 .Header {
   color: rgb(255, 253, 253);
   display: flex;
@@ -7,46 +11,108 @@
   position: fixed;
   width: 100%;
   height: 110px;
- border-bottom:0.1px solid rgb(217, 217, 217) ;
- background: linear-gradient(to left,#003399,rgb(117, 204, 252)
-);
- 
+  border-bottom: 0.1px solid rgb(217, 217, 217);
+  /* background: linear-gradient(to left, #003399, rgb(117, 204, 252)); */
+  background-color: white;
+  z-index: 1000;
 }
 .link {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 300px;
-  padding-right: 25px;
-  padding-top: 25px;
   text-decoration: none;
-  margin-top: 40px ;
+  width: 300px;
+  height: 140px;
+  align-items: center;
+  margin-right: 30px;
+  transition: 0.8s ease;
+  font-family: "Onest";
+  font-size: 16px;
 }
-.link span{
-transition: 0.8s ease;
-
+.link a {
+  transition: 0s;
 }
 .link :hover {
-  color: blueviolet;
- 
-  
 }
-.link :visited {
+.link a:visited {
   color: rgb(252, 252, 252);
-}
-h1{
-padding-left: 25px;
-padding-top: 15px;
-}
-.search{
-   font-size: 18px;
-   padding: 20px;
-   width: 55%;
-   height: 60px;
-   border-radius: 17px;
- background-color: #fff;
-    color: #242424;
-    margin-top: 30px;
-    margin-left: 140px;
+  text-decoration: none;
 }
 
+.link a {
+  text-decoration: none;
+}
+h1 {
+  padding-left: 25px;
+  padding-top: 15px;
+}
+.search {
+  font-size: 18px;
+  padding: 20px;
+  width: 55%;
+  height: 60px;
+  border-radius: 17px;
+  background-color: #fff;
+  color: #242424;
+  margin-top: 30px;
+  margin-right: 40px;
+}
+.logo-first {
+  font-family: "Rubik Moonrocks";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+
+  /* or 105% */
+  letter-spacing: -0.07em;
+  color: #ffffff;
+}
+.logo-second {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+
+  /* or 105% */
+  letter-spacing: -0.07em;
+  color: #ffffff;
+}
+.logo-third {
+  font-family: "RocknRoll One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  display: inline-block;
+
+  /* or 105% */
+
+  color: #ffffff;
+  background-color: transparent;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  height: 110px !important;
+  background-color: transparent !important ;
+  justify-content: center;
+  align-items: center;
+  
+}
+.Header-link:hover {
+  color: #e3e2e2 !important;
+}
+.icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 20px;
+  color: #4a54df;
+ 
+}
+.Header-link{
+  padding-left: 30px;
+}
+.logo-color{
+   color: #4a54df;
+}
