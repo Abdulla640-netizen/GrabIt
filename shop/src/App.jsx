@@ -12,7 +12,7 @@ import ItemsListManagementPage from "./components/ItemsListManagementPage/ItemsL
 import LoginPage from "./components/LoginPage/LoginPage";
 import { MdOutlineCurrencyRuble } from "react-icons/md";
 import SellerPage from "./components/SellerPage/SellerPage";
-
+import CardPage from "./components/CardPage/CardPage";
 
 const electronicsCategory = "Электроника";
 const homeAndGardenCategory = "Для дома и дачи ";
@@ -36,7 +36,7 @@ export const products = [
   {
     image:
       "https://basket-39.wbbasket.ru/vol8777/part877719/877719566/images/big/1.webp",
-    name:'Iphone 15 Pro Max',
+    name: "Iphone 15 Pro Max",
     price: "108 699 ",
     originalPrice: "79 999  ",
     location: "Москва, ЦСК",
@@ -404,18 +404,16 @@ function App() {
               path="/item/management/"
               element={<ItemsListManagementPage />}
             />
-              <Route path="/seller" element={<SellerPage />} />
+            <Route path="/seller" element={<SellerPage />} />
+            <Route path="/card" element={<CardPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
-         
         </Routes>
       </div>
     </BrowserRouter>
   );
 }
-
-
 
 export default App;

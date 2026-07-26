@@ -6,6 +6,7 @@ import { tokenStorage } from "../../shared/auth/tokenStorage";
 import { useEffect, useState } from "react";
 import { ImExit } from "react-icons/im";
 import { LuImagePlus } from "react-icons/lu";
+import { Link } from "@mui/material";
 
 
 function Header() {
@@ -66,7 +67,7 @@ const logOut =()=> {
             <div className="icons" color="#4a54df">
               {" "}
               <FaShoppingCart size={24} />
-              <span> Корзина</span>
+              <Link to='/card'> Корзина</Link>
             </div>
           </a>
         </div>

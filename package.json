@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "@emotion/react": "^11.14.0",
     "@mui/material": "^9.2.0",
+    "@mui/styled-engine": "^9.1.1",
+    "brew": "^0.0.8",
     "multer": "^2.1.0",
     "react-select": "^5.10.2"
   }
