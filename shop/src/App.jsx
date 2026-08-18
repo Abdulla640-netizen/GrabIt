@@ -14,10 +14,10 @@ import { MdOutlineCurrencyRuble } from "react-icons/md";
 import SellerPage from "./components/SellerPage/SellerPage";
 import CardPage from "./components/CardPage/CardPage";
 
-const electronicsCategory = "Электроника";
+const electronicsCategory = "Электроника";Д
 const homeAndGardenCategory = "Для дома и дачи ";
 const beautyAndHealthCategory = "Красота и здоровье";
-const clothingAndAccessoriesCategory = "Одежда, обувь, аксессуары";
+const clothingAndAccessoriesCategory = "Одежда, Обувь, Аксессуары";
 const autoPartsCategory = "Запчасти";
 const kidsProductsCategory = "Товары для детей";
 const sportCategory = "Для спорта";

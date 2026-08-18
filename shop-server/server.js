@@ -1,14 +1,12 @@
-import multer  from "multer";
+import multer from "multer";
 
-import express from "express"
+import express from "express";
 const app = express();
 app.use(express.json());
 import { Pool, Client } from "pg";
-import jwt from "jsonwebtoken"
-import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
-
-
 
 import cors from "cors";
 
@@ -80,8 +78,7 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-   const tokenId = uuidv4()
-
+  const tokenId = uuidv4();
 
   const { email, password } = req.body;
 
@@ -121,12 +118,12 @@ app.post("/login", async (req, res) => {
       { expiresIn: "1h" },
     );
     pool.query(
-     `INSERT INTO tokens 
+      `INSERT INTO tokens 
      (id,user_id,token, created_at)
      VALUES ($1, $2, $3, $4)
      RETURNING id,user_id,token, created_at`,
- 
-      [tokenId,user.id,token,creared_at]
+
+      [tokenId, user.id, token, creared_at],
     );
 
     res.json({
@@ -304,7 +301,7 @@ app.post("/items", upload.array("images"), async (req, res) => {
       });
     }
 
-   await pool.query("BEGIN");
+    await pool.query("BEGIN");
 
     pool.query(
       `INSERT INTO users 
@@ -335,9 +332,9 @@ app.post("/items", upload.array("images"), async (req, res) => {
      RETURNING id,filename `,
       );
     }
-   await pool.query("COMMIT");
+    await pool.query("COMMIT");
   } catch (err) {
-     await pool.query("ROLLBACK");
+    await pool.query("ROLLBACK");
     res.status(500).json({ error: "Ошибка при создании товара" });
   }
 });
@@ -401,40 +398,38 @@ app.put("/items/:id", (req, res) => {
   );
 });
 
-app.delete("/images/:id", async(req, res) => {
-  const {id} =req.params;
-  const {url} = req.body;
-  try{
-    const result =await pool.query(
+app.delete("/images/:id", async (req, res) => {
+  const { id } = req.params;
+  const { url } = req.body;
+  try {
+    const result = await pool.query(
       `UPDATE items
       SET images =array_remove(images,$1)
       WHERE id = $2
       RETURNING *`,
 
-      [url,id]
+      [url, id],
     );
     res.json(result.rows[0]);
-  }catch (err){
+  } catch (err) {
     console.error(err);
-    res.status(500).json({error:'Ошибка удаления'})
+    res.status(500).json({ error: "Ошибка удаления" });
   }
 });
 
 app.post("/images", (req, res) => {
-   const {id} =req.params;
-  const {url} = req.body;
+  const { id } = req.params;
+  const { url } = req.body;
   pool.query(
     `UPDATE items
     SET images =array_append(images,$1)
     WHERE id = $2
       RETURNING *`,
 
-      [url,id]
-    );
-    res.json(result.rows[0]);
-  } 
+    [url, id],
   );
-
+  res.json(result.rows[0]);
+});
 
 app.get("/images", (req, res) => {
   pool.query("SELECT * FROM images", (err, dbRes) => {
@@ -471,7 +466,131 @@ app.get("/categories", (req, res) => {
   });
 });
 
+app.put("/items/:id/toggleLike", (req, res) => {
+  const { id } = req.params;
+
+  pool.query(
+    `UPDATE items
+     SET is_liked = NOT is_liked
+     WHERE id = $1
+     RETURNING *`,
+    [id],
+    (err, dbRes) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Ошибка сервера" });
+      }
+
+      if (dbRes.rows.length === 0) {
+        return res.status(404).json({ error: "Товар не найден" });
+      }
+
+      res.json({
+        message: "Товар обновлён",
+        user: dbRes.rows[0],
+      });
+    },
+  );
+});
+
+app.post("/business_profile", (req, res) => {
+  const {
+    company_name,
+    inn,
+    company_registrationn_date,
+    full_name_of_the_head,
+    product,
+    product_categories,
+    business_profile_id,
+  } = req.body;
+
+  pool.query(
+    `INSERT INTO for_business_table
+     ( company_name, inn, company_registrationn_date, full_name_of_the_head, product, product_categories, business_profile_id)
+     VALUES ($1, $2, $3, $4, $5, $6, $7)
+     RETURNING  company_name, inn, company_registrationn_date, full_name_of_the_head, product, product_categories, business_profile_id`,
+    [
+      company_name,
+      inn,
+      company_registrationn_date,
+      full_name_of_the_head,
+      product,
+      product_categories,
+      business_profile_id,
+    ],
+    (err, dbRes) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({
+          error: "Ошибка сервера",
+        });
+      }
+
+      res.status(201).json({
+        message: "Пользователь успешно создан",
+        user: dbRes.rows[0],
+      });
+    },
+  );
+});
+
+app.put("/business_profile/:id", (req, res) => {
+  const { id } = req.params;
+  const {
+    company_name,
+    company_registrationn_date,
+    full_name_of_the_head,
+    product,
+    product_categories,
+  } = req.body;
+const sql =`UPDATE for_business_table
+        SET company_name = $1,
+        company_registrationn_date = $2,
+        full_name_of_the_head = $3,
+        product = $4,
+        product_categories = $5
+     WHERE business_profile_id = $6
+     RETURNING *`
+     console.log(sql)
+  pool.query(
+   sql,
+    [company_name, company_registrationn_date, full_name_of_the_head, product, product_categories,id],
+    (err, dbRes) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Ошибка сервера" });
+      }
+
+      if (dbRes.rows.length === 0) {
+        return res.status(404).json({ error: "Товар не найден" });
+      }
+
+      res.json({
+        message: "Бизнес профиль обновлён",
+        user: dbRes.rows[0],
+      });
+    },
+  );
+});
+   
+app.delete("/business_profile/:id", (req, res) => {
+  const { id } = req.params;
+  pool.query(
+    "DELETE FROM for_business_table WHERE business_profile_id = $1 RETURNING *",
+    [id],
+    (err, dbRes) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Ошибка сервера" });
+      }
+
+      res.json({
+        message: "Бизнес профиль удалён",
+        user: dbRes.rows[0],
+      });
+    },
+  );
+});
 
 
 app.listen(3000, () => console.log("Сервер запущен на http://localhost:3000"));
-
