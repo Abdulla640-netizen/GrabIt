@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect, useState } from "react";
 import { categories, products } from "../../App";
 import ShopItemsList from "../ShopItemsList/ShopItemList";

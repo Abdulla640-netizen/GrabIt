@@ -1,3 +1,4 @@
+import React from 'react'
 import "./Header.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";

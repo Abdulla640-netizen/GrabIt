@@ -13,8 +13,8 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import { MdOutlineCurrencyRuble } from "react-icons/md";
 import SellerPage from "./components/SellerPage/SellerPage";
 import CardPage from "./components/CardPage/CardPage";
-
-const electronicsCategory = "Электроника";Д
+import React from 'react'
+const electronicsCategory = "Электроника";
 const homeAndGardenCategory = "Для дома и дачи ";
 const beautyAndHealthCategory = "Красота и здоровье";
 const clothingAndAccessoriesCategory = "Одежда, Обувь, Аксессуары";
