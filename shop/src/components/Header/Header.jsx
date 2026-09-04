@@ -20,6 +20,20 @@ const logOut =()=> {
   window.location.reload()
 }
 
+const [items,setItems] = useState ([])
+
+
+
+useEffect(() => {
+    const getItems = async () => {
+      const res = await fetch("http://localhost:3000/Items");
+      const data = await res.json();
+      const result = data.map(el=>Object.values(el)[1])
+      setItems(result);
+    };
+    getItems()
+ })
+
   return (
     <header>
       <div className="Header">

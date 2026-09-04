@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./SignupForm.css";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import React from 'react'
+
 
 function SignupForm() {
   const [formData, setFormData] = useState({

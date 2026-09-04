@@ -14,10 +14,18 @@ import { PiCrownSimpleFill } from "react-icons/pi";
 import { IoStar } from "react-icons/io5";
 import { MdOutlineCurrencyRuble } from "react-icons/md";
 import { FaRubleSign } from "react-icons/fa";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { increment,decrement } from "../../features/counter/counter";
+
 
 const ShopItemPage = () => {
   const { id } = useParams(); // Получаем id из URL
+  
+   const dispatch = useDispatch()
 
+  const count = useSelector((state) => state.counter.value);
+  console.log(count);
   const [showSellerInfo, setShowSellerInfo] = useState(false);
 
   const product = products.find((item) => item.id === Number(id));
@@ -92,6 +100,13 @@ const ShopItemPage = () => {
           </div>
           <div className="buttons">
             {" "}
+            <h1>
+              {" "}
+              
+              {count}
+            </h1>
+            <button onClick={()=>dispatch(increment())}>+</button> 
+            <button onClick={()=>dispatch(decrement())}>-</button>
             <button className="order-btn">Добавить в корзину</button>{" "}
             <button className="back-btn">
               <Link to="/" className="back-btn">
@@ -117,7 +132,7 @@ const ShopItemPage = () => {
           {showSellerInfo ? (
             <div
               className="SelleriInfo"
-                onMouseEnter={() => setShowSellerInfo(true)}
+              onMouseEnter={() => setShowSellerInfo(true)}
               onMouseLeave={() => setShowSellerInfo(false)}
             >
               <div className="additional-infor">
@@ -134,10 +149,12 @@ const ShopItemPage = () => {
                 <div className="time">
                   На Grabit <span>1 год</span>
                 </div>
-                <div className="btn-All-products">     
-                   <Link to="/seller">
-                   <button className="All-products ">Все товары продавца</button>
-        </Link>
+                <div className="btn-All-products">
+                  <Link to="/seller">
+                    <button className="All-products ">
+                      Все товары продавца
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
