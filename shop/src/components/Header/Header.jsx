@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import { ImExit } from "react-icons/im";
 import { LuImagePlus } from "react-icons/lu";
 import { Link } from "@mui/material";
+import { setSearch } from "../../features/search/search";
+import { useDispatch, useSelector } from "react-redux";
 
 
 function Header() {
@@ -19,20 +21,12 @@ const logOut =()=> {
   tokenStorage.remove()
   window.location.reload()
 }
+  
+const search = useSelector((state)=> state.search.value)
+const dispatch = useDispatch()
 
-const [items,setItems] = useState ([])
 
 
-
-useEffect(() => {
-    const getItems = async () => {
-      const res = await fetch("http://localhost:3000/Items");
-      const data = await res.json();
-      const result = data.map(el=>Object.values(el)[1])
-      setItems(result);
-    };
-    getItems()
- })
 
   return (
     <header>
@@ -49,6 +43,8 @@ useEffect(() => {
         </div>
 
         <input
+        value={search}
+        onChange={(e)=> dispatch(setSearch(e.target.value))}
           className="search"
           placeholder="Найти на GrabIt..."
           type="search"

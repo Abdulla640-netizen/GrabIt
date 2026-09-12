@@ -1,31 +1,63 @@
-import React from 'react'
+import React from "react";
 import { useEffect, useState } from "react";
 import { categories, products } from "../../App";
 import ShopItemsList from "../ShopItemsList/ShopItemList";
-import './HomePage.css'
+import "./HomePage.css";
 import { tokenStorage } from "../../shared/auth/tokenStorage";
+import { useDispatch, useSelector } from "react-redux";
+import { store } from "../../app/store";
+import {
+  getCategories,
+  setCategories,
+} from "../../features/categories/categories";
+import { setProducts } from "../../features/products/products";
 
 function HomePage() {
   const [activeCategory, setActiveCategory] = useState("Все");
-  const [allCategories, setAllCategories] = useState([])
-  const [categories, setCategories] = useState([])
+  const [allCategories, setAllCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
 
- useEffect(() => {
+  const dispatch = useDispatch();
+  const storeCategories = useSelector((state) => state.categories);
+  const storeProducts = useSelector((state) => state.products);
+  useEffect(() => {
     const getCategories = async () => {
       const res = await fetch("http://localhost:3000/categories");
       const data = await res.json();
-      const result = data.map(el=>Object.values(el)[1])
+
+      const result = data.map((el) => Object.values(el)[1]);
+      console.log(storeCategories);
       setCategories(result);
-      setAllCategories(["Все",...categories])
-      console.log(allCategories)
+      useDispatch(setCategories(categories));
+      setAllCategories(["Все", ...categories]);
+      console.log(allCategories);
     };
-    getCategories()
- })
+    getCategories();
+  });
+
+  useEffect(() => {
+    fetch("http://localhost:3000/items")
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => {
+        dispatch(setProducts(data));
+      });
+  },[dispatch]);
+  
+  const filteredProducts = activeCategory === "Все" 
+  ?products
+  :products.filter((product)=>{
+    product.title
+    .toLowerCase()
+    .includes(setSearch.toLowerCase())
+  })
+  
+
 
   const handleClick = (category) => {
     setActiveCategory(category);
   };
-
   const styles = {
     container: {
       display: "flex",
@@ -42,31 +74,21 @@ function HomePage() {
       fontWeight: "500",
       cursor: "pointer",
       transition: "all 0.2s ease-in-out",
-        marginTop:'10%',
+      marginTop: "10%",
     }),
   };
-console.log(tokenStorage.get())
+  console.log(tokenStorage.get());
   // Добавляем "Все" к списку категорий
 
-  
-
   // Фильтруем товары
-  const filteredProducts =
-    activeCategory === "Все"
-      ? products
-      : products.filter((p) =>{
-        console.log(p.category)
-        console.log(activeCategory)
-        console.log(p.category===activeCategory)
-        return p.category === activeCategory
-      }) 
+  
 
   return (
     <div className="Home">
-
       <div style={styles.container}>
         {allCategories.map((category) => (
-          <button className="btn-category"
+          <button
+            className="btn-category"
             key={category}
             style={styles.button(activeCategory === category)}
             onClick={() => handleClick(category)}
