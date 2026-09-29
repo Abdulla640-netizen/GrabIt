@@ -7,6 +7,7 @@ import categoriesReducer from '../features/categories/categories';
 import productsReducer from '../features/products/products';
 import userReducer from '../features/user/user';
 import searchReducer from '../features/search/search';
+import cardReducer from '../features/search/search';
 
 export const store = configureStore ({
     reducer:{
@@ -17,6 +18,8 @@ export const store = configureStore ({
         categories : categoriesReducer,
         products : productsReducer,
         user : userReducer,
-        search : searchReducer
+        search : searchReducer,
+        card : cardReducer
+
     }
 })

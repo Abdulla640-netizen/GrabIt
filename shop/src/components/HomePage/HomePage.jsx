@@ -19,6 +19,8 @@ function HomePage() {
 
   const dispatch = useDispatch();
   const storeCategories = useSelector((state) => state.categories);
+  const search = useSelector((state) => state.search.value);
+  console.log(search);
   const storeProducts = useSelector((state) => state.products);
   useEffect(() => {
     const getCategories = async () => {
@@ -37,23 +39,17 @@ function HomePage() {
 
   useEffect(() => {
     fetch("http://localhost:3000/items")
-      .then((response) => {
-        response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         dispatch(setProducts(data));
       });
-  },[dispatch]);
-  
-  const filteredProducts = activeCategory === "Все" 
-  ?products
-  :products.filter((product)=>{
-    product.title
-    .toLowerCase()
-    .includes(setSearch.toLowerCase())
-  })
-  
+  }, [dispatch]);
 
+  const filteredProducts = products.filter((product) => {
+    return product.name.toLowerCase().includes(search.toLowerCase());
+  });
+  console.log(filteredProducts + "фbлитрованые товары");
 
   const handleClick = (category) => {
     setActiveCategory(category);
@@ -81,7 +77,6 @@ function HomePage() {
   // Добавляем "Все" к списку категорий
 
   // Фильтруем товары
-  
 
   return (
     <div className="Home">

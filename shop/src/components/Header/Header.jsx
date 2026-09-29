@@ -74,13 +74,12 @@ const dispatch = useDispatch()
              <span>Для бизнеса</span>
             </div>
           </a>
-          <a href="" className="Header-link">
-            <div className="icons" color="#4a54df">
-              {" "}
-              <FaShoppingCart size={24} />
-              <Link to='/card'> Корзина</Link>
-            </div>
-          </a>
+          <a href="/card" className="Header-link">
+              <div className="icons">
+               <FaShoppingCart size={24} />
+                <span> Корзина</span>
+              </div>
+            </a>
         </div>
       </div>
       {showModal && (

@@ -34,7 +34,7 @@ export const categories = [
 
 export const products = [
   {
-    image:
+   image:
       "https://basket-39.wbbasket.ru/vol8777/part877719/877719566/images/big/1.webp",
     name: "Iphone 15 Pro Max",
     price: "108 699 ",
@@ -43,7 +43,7 @@ export const products = [
     id: 1,
     title: (
       <strong>
-        <h3>Oписание</h3>
+        <h3>Oписа ние</h3>
       </strong>
     ),
     more_details:
