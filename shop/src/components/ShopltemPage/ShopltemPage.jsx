@@ -24,7 +24,7 @@ const ShopItemPage = () => {
 
   const dispatch = useDispatch();
   const storeCard = useSelector((state) => state.card.value);
- console.log(storeCard)
+ console.log(storeCard,'страница товара')
   const count = useSelector((state) => state.counter.value);
 
   const [showSellerInfo, setShowSellerInfo] = useState(false);
