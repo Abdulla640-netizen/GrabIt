@@ -102,8 +102,9 @@ const ShopItemPage = () => {
             {/* <button onClick={()=>dispatch(increment())}>+</button> 
             <button onClick={()=>dispatch(decrement())}>-</button> */}
             <button
-              onClick={() =>
-                dispatch(
+              onClick={() =>{
+                console.log('кнопка нажата ')
+                 dispatch(
                   setCardData([
                     ...storeCard,
                     {
@@ -117,11 +118,14 @@ const ShopItemPage = () => {
                       
 
                       category: product.category,
-
-
-                    },
+                         },
                   ]),
                 )
+
+              }
+
+
+                 
               }
               className="order-btn"
             >
